@@ -1,0 +1,10 @@
+Word Analysis - Tokenization
+Stemming Lemmatization
+Stopword
+N- Gram
+Add one n-gram smoothing
+POS-tagging uisng HMM
+POS-tagging uisng Viterbi Algo
+POS-tagging uisng GUI
+Chunker using nltk
+Sentimental Analysis
