@@ -1,0 +1,91 @@
+#include<iostream>
+/*
+Insertion after a certain node
+Traverse
+Delete a particular node
+*/
+using namespace std;
+struct node{
+int data;
+node* next;
+node(int val){
+data = val;
+next = NULL;
+}
+};
+class ll{
+public:
+node *head;
+ll(){
+head=NULL;
+}
+void traverse(){
+node *temp = head;
+while(temp!=NULL){
+cout<<temp->data<<" ";
+temp = temp->next;
+}
+cout<<"\n";
+}
+void insert(int val){
+node* temp = new node(val);
+if(head==NULL){
+head = temp;
+}
+else{
+node *ptr = head;
+while(ptr->next!=NULL){
+ptr = ptr->next;
+}
+ptr->next = temp;
+}
+}
+ void reverse()
+ {
+
+ node* current = head;
+ node *prev = NULL, *next = NULL;
+ while (current != NULL) {
+ next = current->next;
+ current->next = prev;
+ prev = current;
+ current = next;
+ }
+ head = prev;
+ }
+
+};
+ll add(ll a, ll b){
+node* temp1 = a.head;
+node* temp2 = b.head;
+int carry = 0;
+ll ans;
+while(temp1 && temp2){
+int num = temp1->data + temp2->data + carry;
+carry = num/10;
+ans.insert(num%10);
+temp1 = temp1->next;
+temp2 = temp2->next;
+}
+ans.traverse();
+ans.reverse();
+return ans;
+}
+int main(){
+ll obj1, obj2;
+obj1.insert(5);
+obj1.insert(1);
+obj1.insert(2);
+//obj1.reverse();
+cout<<"Linked List 1 : ";
+obj1.traverse();
+obj2.insert(7);
+obj2.insert(9);
+obj2.insert(6);
+//obj2.reverse();
+cout<<"Linked List 2 : ";
+obj2.traverse();
+cout<<"Answer : ";
+add(obj1, obj2);
+return 0;
+}
